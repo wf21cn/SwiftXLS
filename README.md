@@ -9,26 +9,13 @@ SwiftXLS 是一个用于读取旧版 Excel (.xls) 文件的 Swift 封装库。�
 - 支持不同类型的单元格（文本、数字、布尔值等）
 - 提供简单的 API 接口
 - 支持 macOS 和 iOS
+- 无需额外依赖，开箱即用
 
 ## 安装要求
 
 - macOS 11.0+ 或 iOS 13.0+
 - Swift 5.5+
 - Xcode 13.0+
-
-### 系统依赖
-
-在使用此库之前，您需要先安装 libxls：
-
-macOS (使用 Homebrew):
-```bash
-brew install libxls
-```
-
-Ubuntu/Debian:
-```bash
-sudo apt-get install libxls-dev
-```
 
 ## 安装
 
@@ -39,6 +26,16 @@ sudo apt-get install libxls-dev
 ```swift
 dependencies: [
     .package(url: "https://github.com/yourusername/SwiftXLS.git", from: "1.0.0")
+]
+```
+
+然后在您的目标中添加 "SwiftXLS" 依赖：
+
+```swift
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: ["SwiftXLS"]),
 ]
 ```
 

@@ -22,12 +22,19 @@ let package = Package(
         .target(
             name: "SwiftXLS",
             dependencies: ["Clibxls"]),
-        .systemLibrary(
+        .target(
             name: "Clibxls",
-            pkgConfig: "libxls",
-            providers: [
-                .brew(["libxls"]),
-                .apt(["libxls-dev"])
+            path: "Sources/Clibxls",
+            exclude: ["README.md"],
+            sources: ["src"],
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("include"),
+                .define("HAVE_CONFIG_H"),
+                .define("LIBXLS_STATIC")
+            ],
+            linkerSettings: [
+                .linkedLibrary("iconv")
             ]
         ),
         .testTarget(
