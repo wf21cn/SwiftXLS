@@ -1,0 +1,5 @@
+module Clibxls [system] {
+    header "shim.h"
+    link "xls"
+    export *
+} 
